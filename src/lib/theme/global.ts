@@ -13,6 +13,7 @@ export const bodyStyles = css`
 		padding: 0;
 	}
 `;
+
 export const GlobalStyle = createGlobalStyle<any>`
 	body {
         @font-face {

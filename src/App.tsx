@@ -1,16 +1,19 @@
 import React from "react";
-import { GlobalStyle } from "./lib/theme";
-import { Placeholder } from "./lib/placeholder";
+import { GlobalStyle, lightTheme } from "./lib/theme";
+import { Placeholder, Button } from "./lib";
+import { ThemeProvider } from "styled-components";
 
 function App() {
 	const switcher = false;
 	return (
-		<>
+		<ThemeProvider theme={lightTheme}>
 			<GlobalStyle />
 			<main>
-				<Placeholder text="Привет мир!" />
+				{/* <Placeholder text="Привет мир!" /> */}
+				<Button />
+				<Button size="small" disabled />
 			</main>
-		</>
+		</ThemeProvider>
 	);
 }
 
