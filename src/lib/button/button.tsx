@@ -5,12 +5,35 @@ export type TAppearance = "primary" | "secondary" | "tertiary" | "inverted";
 
 export interface IButtonProps {
 	appearance?: TAppearance;
+
+	/**
+	 * Make button disabled
+	 *
+	 */
 	disabled?: boolean;
 	// @todo Описать состояние загрузки
 	// loading
-	text?: string;
+
+	/**
+	 * Text is explanation of button meaning
+	 */
+	text: string;
+
+	/**
+	 * Small - used for comapct use cases
+	 * Base used for main call to action
+	 *
+	 */
 	size?: "base" | "small";
+
+	/**
+	 * Places icon before text
+	 */
 	iconBefore?: ReactNode;
+
+	/**
+	 * Places icon after text
+	 */
 	iconAfter?: ReactNode;
 }
 
@@ -19,11 +42,11 @@ export const StyledButton = styled.button<IButtonProps>`
 	border-radius: ${(props) => props.theme.cornerRadius.componentBase};
 	font-size: 16px;
 	line-height: 24px;
-	gap: 4px;
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	gap: 8px;
 	box-shadow: none;
 	cursor: pointer;
 
@@ -90,11 +113,19 @@ export const StyledButton = styled.button<IButtonProps>`
         `}
 `;
 
+/**
+ *
+ * Button is a primary call to action in user interface
+ *
+ *
+ */
 export const Button: FC<IButtonProps> = ({
 	appearance = "primary",
-	text = "Button",
+	text,
 	size = "base",
 	disabled,
+	iconAfter,
+	iconBefore,
 }) => {
 	return (
 		<StyledButton
@@ -103,7 +134,9 @@ export const Button: FC<IButtonProps> = ({
 			size={size}
 			disabled={disabled}
 		>
+			{iconBefore}
 			{text}
+			{iconAfter}
 		</StyledButton>
 	);
 };

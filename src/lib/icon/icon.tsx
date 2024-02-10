@@ -34,7 +34,7 @@ const Path = styled.path`
  * Компонент иконка
  */
 export const Icon: FC<ISvgProps> = ({
-	iconName = "browser",
+	iconName = "chevronRight",
 	block = false,
 	size = 24,
 	...props

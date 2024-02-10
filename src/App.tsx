@@ -1,8 +1,10 @@
 import React from "react";
 import { GlobalStyle, lightTheme } from "./lib/theme";
-import { ExampleCard } from "./lib";
+import { ExampleCard, Button, Icon } from "./lib";
 import styled, { ThemeProvider } from "styled-components";
-import ManImage from "./lib/example-card/assets/image-3.png";
+
+const image =
+	"https://wallbox.ru/wallpapers/main/201124/bfc11ec1075aa8714a8dfc780382e413.jpg";
 
 const title = "Заголовок";
 const subTitle = "Подзаголовок карточки";
@@ -22,19 +24,25 @@ const StyledContainer = styled.div`
 
 function App() {
 	const switcher = false;
+	const ifNotFilled = false;
 	return (
 		<ThemeProvider theme={lightTheme}>
 			<GlobalStyle />
 			<main>
+				<Button
+					text="Buy me"
+					iconBefore={<Icon iconName="chevronRight" size={16} />}
+					iconAfter={<Icon iconName="chevronRight" size={16} />}
+				/>
 				<StyledContainer>
 					<ExampleCard
-						imagePath={ManImage}
+						imagePath={image}
 						title={title}
 						bodyText={bodyText}
 						subTitle={subTitle}
 					/>
 					<ExampleCard
-						imagePath={ManImage}
+						imagePath={image}
 						title="Заголовок введенный руками"
 						bodyText={bodyText}
 					/>
